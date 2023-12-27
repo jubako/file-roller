@@ -43,6 +43,7 @@
 #include "fr-command-rar.h"
 #include "fr-command-rpm.h"
 #include "fr-command-tar.h"
+#include "fr-command-arx.h"
 #if HAVE_JSON_GLIB
   #include "fr-command-unarchiver.h"
 #endif
@@ -120,6 +121,7 @@ FrMimeTypeDescription mime_type_desc[] = {
 	{ "application/x-zstd-compressed-tar",     ".tar.zst",  0 },
 	{ "application/zip",                       ".zip",      0 },
 	{ "application/zstd",                      ".zst",      0 },
+	{ "application/x-arx",                     ".arx",      0 },
 	{ NULL, NULL, 0 }
 };
 
@@ -130,6 +132,7 @@ FrExtensionType file_ext_type[] = {
 	{ ".apk", "application/vnd.android.package-archive" },
 	{ ".ar", "application/x-ar" },
 	{ ".arj", "application/x-arj" },
+	{ ".arx", "application/x-arx" },
 	{ ".bin", "application/x-stuffit" },
 	{ ".br", "application/x-brotli" },
 	{ ".bz", "application/x-bzip" },
@@ -365,6 +368,7 @@ register_archives (void)
 	register_archive (fr_command_zip_get_type ());
 	register_archive (fr_command_lrzip_get_type ());
 	register_archive (fr_command_zoo_get_type ());
+	register_archive (fr_command_arx_get_type ());
 #if HAVE_JSON_GLIB
 	register_archive (fr_command_unarchiver_get_type ());
 #endif
